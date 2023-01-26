@@ -1,0 +1,8 @@
+- hosts: ansible-tester
+  tasks:
+   - name: create file
+     copy:
+       dest: "/home/ubuntu/index.html"
+       contents: <h1>Feito com Ansible</h1>
+   - name: create server
+     shell: "nohup busybox httpd -f -p 8080 &"      
