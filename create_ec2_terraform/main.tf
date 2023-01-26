@@ -18,12 +18,12 @@ resource "aws_instance" "app_server" {
   ami           = "ami-095413544ce52437d"
   instance_type = "t2.micro"
   key_name = "iac_tf"
-  # */user_data = <<-EOF
-#           #!/bin/bash
-#           cd /home/ubuntu
-#           echo “<h1>Mensagem a ser mostrada</h1>” > index.js
-#           nohup busybox httpd -f -p 8080 &
-#           EOF
+  user_data = <<-EOF
+                #!/bin/bash
+                cd /home/ubuntu
+                echo “<h1>Mensagem a ser mostrada</h1>” > index.js
+                nohup busybox httpd -f -p 8080 &
+                EOF
   tags = {
     Name = "InstanceTwo"   #NAME INSTANCE
   }
